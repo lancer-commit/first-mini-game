@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;               /* pehle "pading" tha */
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #335a45;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    padding-top: 30px;        /* pehle "50 px" tha, ghalat */
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+/* Sab buttons ki common styling */
+button {
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.15s, background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Game ke boxes */
+.box {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.box:hover:not(:disabled) {
+    background-color: #e8f5ec;
+    transform: scale(1.05);
+}
+
+/* Bhara hua box (disabled) */
+.box:disabled {
+    cursor: not-allowed;
+    background-color: #f2f2f2;
+    color: #000;              /* disabled mein text halka nahi hoga */
+}
+
+/* Reset aur New Game buttons */
+#reset-btn,
+#new-btn {
+    display: block;
+    margin: 20px auto;
+    width: 170px;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #000;
+    background-color: #fff;
+}
+
+#reset-btn {
+    border: 5px solid #f30000;
+}
+
+#new-btn {
+    border: 5px solid #00a300;
+}
+
+#reset-btn:hover,
+#new-btn:hover {
+    background-color: #ffe9a8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Winner message */
+#msg-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#msg {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Message chhupane ke liye (JS isay add/remove karta hai) */
+.hide {
+    display: none;
+}
+
+/* Mobile screens ke liye */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .game {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .box {
+        width: 80px;
+        height: 80px;
+        font-size: 38px;
+    }
+
+    #msg {
+        font-size: 22px;
+    }
+}
